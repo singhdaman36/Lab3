@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Create a list</title>
+</head>
+<body>
+
+    <p>Enter some text to add to list</p>
+    <input type = "text" id="Text-Entered">
+    <button id = "Add-Button">Add</button>
+    <button id = "Clear">Clear</button>
+
+    <ul id ="Text-List">
+
+    </ul>
+
+    <p id="Message"></p>
+
+<script>
+
+    // Select the #mouse-me paragraph
+    let textInput = document.querySelector('#Text-Entered')
+    let addButton = document.querySelector('#Add-Button')
+    let textList = document.querySelector('#Text-List')
+    let clearButton = document.querySelector('#Clear')
+    let message = document.querySelector('#Message')
+
+    
+    addButton.addEventListener ('click', function(){
+
+        //let list = textInput.value 
+        //let listItem = document.createElement('Li')
+        //listItem.innerHTML = list
+        //textList.appendChild(listItem)
+        
+        var length = document.getElementsByTagName("Li").length;
+
+        if (length > 9){
+
+            message.innerHTML = 'Can not add more than 10 items. Please clear the list'
+        }
+        else {
+        let list = textInput.value 
+        let listItem = document.createElement('Li')
+        listItem.innerHTML = list
+        textList.appendChild(listItem)
+        }
+
+        textInput.value = ''
+    })
+
+    clearButton.addEventListener('click',function(){
+
+        textInput.value = ''
+        message.innerHTML = ''
+        textList.innerHTML = ''
+
+    }      
+    )
+
+
+
+</script>
+
+</body>
+</html>
